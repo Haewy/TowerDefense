@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1364848759
+    locked: 0
+  - name: Towers
+    uniqueID: 424459313
+    locked: 0
+  - name: UI
+    uniqueID: 2119158617
+    locked: 0
