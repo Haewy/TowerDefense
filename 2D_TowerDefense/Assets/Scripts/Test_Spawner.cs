@@ -44,6 +44,7 @@ public class Test_Spawner : MonoBehaviour
             //Vector2 cellPos = spawnTilemap.LocalToWorld(mousePos);
             var cellPos = spawnTilemap.WorldToCell(mousePos);
             Debug.Log(cellPos);
+
             // Get the center position of the cell
             Vector2 cellPosCenter = spawnTilemap.GetCellCenterWorld(cellPos);
             //var cellPosCenter = spawnTilemap.GetCellCenterWorld(cellPos);
