@@ -15,5 +15,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetComponent<CurrencySystem>().Init();
+        GetComponent<HealthSystem>().Init();
+
     }
 }
