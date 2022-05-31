@@ -29,10 +29,10 @@ public class menu : MonoBehaviour
     public void ExitTheGame()
     {
         //Application.Quit();
-#if UNITY_EDITOR
+#if     UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-          Application.Quit();
+        Application.Quit();
 #endif
     }
 }
