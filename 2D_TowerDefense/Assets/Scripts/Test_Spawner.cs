@@ -14,6 +14,8 @@ public class Test_Spawner : MonoBehaviour
     private int spawnID = -1;
     public Tilemap spawnTilemap;
 
+    public Transform spawnTowerRoot;
+
     // Update is called once per frame
     void Update()
     {
@@ -55,21 +57,29 @@ public class Test_Spawner : MonoBehaviour
             if (spawnTilemap.GetColliderType(cellPos) == Tile.ColliderType.Sprite)
             {
                 // Place it in the center of the selected cell
-                test.transform.position = cellPosCenter;
+                // test.transform.position = cellPosCenter; // I comment this line
+
+                SpawnTower(cellPosCenter);
                 // Then disable the collider
                 spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.None);
 
 
-                test.enabled = true;
+                // test.enabled = true; // I comment this line
             }
-            else
-            {
-                test.enabled = false;
-                spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.Sprite);
-            }
+            //else
+            //{
+            //    test.enabled = false;
+            //    spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.Sprite);
+            //}
 
         }
 
+    }
+    void SpawnTower(Vector3 position) 
+    {
+        GameObject tower = Instantiate(towerPrefabs[spawnID], spawnTowerRoot);
+        tower.transform.position = position;
+        DeselectTower();
     }
     public void SelectTower(int id)
     {
