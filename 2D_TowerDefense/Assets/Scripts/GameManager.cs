@@ -7,9 +7,16 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+
+    public Test_Spawner spawner;
+    public HealthSystem health;
+    public CurrencySystem currency;
     private void Awake()
     {
         instance = this;
+        spawner = GetComponent<Test_Spawner>();
+        health = GetComponent<HealthSystem>();
+        currency = GetComponent<CurrencySystem>();
     }
 
     private void Start()
