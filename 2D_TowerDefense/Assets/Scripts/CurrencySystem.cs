@@ -57,5 +57,7 @@ public class CurrencySystem : MonoBehaviour
     {
         Debug.Log(Use(5));
     }
-   
+    //  I add this function that is being called from Test_Spawner
+    public int EnoughCurrency() 
+    { return currency; }
 }

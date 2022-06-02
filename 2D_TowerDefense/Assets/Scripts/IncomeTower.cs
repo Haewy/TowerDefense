@@ -3,19 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncomeTower : MonoBehaviour
-{
+public class IncomeTower : Tower
+{   // Attach to Prefab of Income tower
     // Properties
     [Header("Assign value for this character")]
     //Health
-    public int health;
+    //public int health;//it goes to its mother class: Tower
     //Cost value
-    public int cost;
+    //public int cost;//it goes to its mother class: Tower
     //Income value that add to the player 
     public int incomeValue;
     //Interval for income
     public float interval;
 
+    [Header("Assign image for coin")]
+    public GameObject coinImg;
     // Methods
     public void Init()
     {
@@ -34,11 +36,34 @@ public class IncomeTower : MonoBehaviour
     public void IncreaseIncome()
     {
         GameManager.instance.currency.Gain(incomeValue);
+        StartCoroutine(ShowCoin());
+    }
+
+    IEnumerator ShowCoin()
+    {
+        coinImg.SetActive(true);
+        // The waiting
+        yield return new WaitForSeconds(interval /2);
+        coinImg.SetActive(false);
     }
 
     void Start()
     {
+        coinImg = this.gameObject.transform.GetChild(0).gameObject;
         Init();
     }
-
+    // Lose health and die
+    public void LoseHealth()
+    {
+        health--;
+        if (health<=0)
+        {
+            Die();
+        }
+    }
+    public void Die() 
+    {
+        Debug.Log("Tower is dead");
+        Destroy(gameObject);
+    }
 }

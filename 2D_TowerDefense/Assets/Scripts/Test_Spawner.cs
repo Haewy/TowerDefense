@@ -59,9 +59,21 @@ public class Test_Spawner : MonoBehaviour
                 // Place it in the center of the selected cell
                 // test.transform.position = cellPosCenter; // I comment this line
 
-                SpawnTower(cellPosCenter);
-                // Then disable the collider
-                spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.None);
+                // Get the currency of the tower that is going to be spawn in order to check if there is enough to proceed
+                int towerCost = towerPrefabs[spawnID].GetComponent<Tower>().cost;
+                // Check if the current currency permits to spawn a new Tower. Calling CurrencySystem script to get currency
+                if (GameManager.instance.currency.EnoughCurrency() >= towerCost)
+                {
+                    // Use the amount of cost from the currency available
+                    GameManager.instance.currency.Use(towerCost);
+                    // Spawn the tower
+                    SpawnTower(cellPosCenter);
+                    // Then disable the collider
+                    spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.None);
+                }
+                else 
+                { Debug.Log("Not enough currency"); }
+                
 
 
                 // test.enabled = true; // I comment this line
