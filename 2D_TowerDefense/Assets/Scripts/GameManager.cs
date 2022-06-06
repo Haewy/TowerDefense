@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Test_Spawner spawner;
     public HealthSystem health;
     public CurrencySystem currency;
+
     private void Awake()
     {
         instance = this;

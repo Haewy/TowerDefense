@@ -15,6 +15,7 @@ public class IncomeTower : Tower
     public int incomeValue;
     //Interval for income
     public float interval;
+    
 
     [Header("Assign image for coin")]
     public GameObject coinImg;

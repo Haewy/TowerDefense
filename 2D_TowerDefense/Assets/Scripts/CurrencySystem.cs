@@ -26,22 +26,10 @@ public class CurrencySystem : MonoBehaviour
     }
     public bool Use(int val)
     {
-        if (CheckCurrency(val))
+        if (EnoughCurrency(val))
         {
             currency -= val;
             UpdateCurrencyUI();
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    // Check if the current currency is available to use
-    private bool CheckCurrency(int val)
-    {
-        if (val <= currency)
-        {
             return true;
         }
         else
@@ -58,6 +46,15 @@ public class CurrencySystem : MonoBehaviour
         Debug.Log(Use(5));
     }
     //  I add this function that is being called from Test_Spawner
-    public int EnoughCurrency() 
-    { return currency; }
+    public bool EnoughCurrency(int val)
+    {
+        if (val <= currency)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
