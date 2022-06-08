@@ -87,7 +87,7 @@ public class Test_Spawner : MonoBehaviour
         switch (id)
         {
             case 0: return towerPrefabs[id].GetComponent<DefenseTower>().cost;
-            case 1: return towerPrefabs[id].GetComponent<DefenseTower>().cost;
+            case 1: return towerPrefabs[id].GetComponent<AttackTower>().cost;
             case 2: return towerPrefabs[id].GetComponent<IncomeTower>().cost;
 
 
