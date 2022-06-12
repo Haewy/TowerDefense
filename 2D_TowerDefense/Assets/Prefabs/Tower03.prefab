@@ -182,4 +182,5 @@ MonoBehaviour:
   cost: 2
   incomeValue: 5
   interval: 6
+  appearingTime: 1
   coinImg: {fileID: 0}

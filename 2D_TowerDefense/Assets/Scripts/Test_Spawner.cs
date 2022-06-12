@@ -60,8 +60,8 @@ public class Test_Spawner : MonoBehaviour
                 // Place it in the center of the selected cell
 
                 // Get the currency of the tower that is going to be spawn in order to check if there is enough to proceed
-                //int towerCost = towerPrefabs[spawnID].GetComponent<Tower>().cost; // ??? why not IncomeTower ???
-                int towerCost = TowerCost(spawnID);
+                int towerCost = towerPrefabs[spawnID].GetComponent<Tower>().cost; // ??? why not IncomeTower ???
+                //int towerCost = TowerCost(spawnID);
                 // Check if the current currency permits to spawn a new Tower. Calling CurrencySystem script to get currency
                 if (GameManager.instance.currency.EnoughCurrency(towerCost))
                 {

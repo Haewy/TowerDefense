@@ -15,7 +15,7 @@ public class IncomeTower : Tower
     public int incomeValue;
     //Interval for income
     public float interval;
-    
+    public int appearingTime;
 
     [Header("Assign image for coin")]
     public GameObject coinImg;
@@ -44,7 +44,7 @@ public class IncomeTower : Tower
     {
         coinImg.SetActive(true);
         // The waiting
-        yield return new WaitForSeconds(interval /2);
+        yield return new WaitForSeconds(appearingTime);
         coinImg.SetActive(false);
     }
 
