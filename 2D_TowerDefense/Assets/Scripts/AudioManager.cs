@@ -34,9 +34,13 @@ public class AudioManager : MonoBehaviour
     }
     public void Play(Sound s)
     {
+        // Start to fix volume problem
+        audioSrc.volume = 1;
         switch (s)
         {
+            
             case Sound.one:
+                audioSrc.volume = 0.2f;
                 audioSrc.PlayOneShot(sOne);
               
                 break;

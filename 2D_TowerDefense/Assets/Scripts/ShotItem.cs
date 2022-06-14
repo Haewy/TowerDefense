@@ -10,6 +10,7 @@ public class ShotItem : MonoBehaviour
     [Header ("Assign values")]
     public int damage;
     public float speedFlying, speedRotating;
+    public bool hit = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,11 @@ public class ShotItem : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
+            if (hit)
+            {
+                collision.GetComponent<Enemy>().LoseHealth();
+                hit = !hit;
+            }
             Debug.Log("HIT");
             Destroy(gameObject);
         }        
