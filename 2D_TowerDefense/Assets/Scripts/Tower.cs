@@ -9,6 +9,19 @@ public class Tower: MonoBehaviour
     //Cost value
     public int cost;//it goes to its mother class: Tower
 
-
+    // Lose health and die
+    public void LoseHealth()
+    {
+        health--;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        Debug.Log("Tower is dead");
+        Destroy(gameObject);
+    }
 
 }

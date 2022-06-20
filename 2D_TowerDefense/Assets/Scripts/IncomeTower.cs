@@ -53,18 +53,18 @@ public class IncomeTower : Tower
         coinImg = this.gameObject.transform.GetChild(0).gameObject;
         Init();
     }
-    // Lose health and die
-    public void LoseHealth()
-    {
-        health--;
-        if (health<=0)
-        {
-            Die();
-        }
-    }
-    public void Die() 
-    {
-        Debug.Log("Tower is dead");
-        Destroy(gameObject);
-    }
+    //// Lose health and die
+    //public void LoseHealth()
+    //{
+    //    health--;
+    //    if (health<=0)
+    //    {
+    //        Die();
+    //    }
+    //}
+    //public void Die() 
+    //{
+    //    Debug.Log("Tower is dead");
+    //    Destroy(gameObject);
+    //}
 }

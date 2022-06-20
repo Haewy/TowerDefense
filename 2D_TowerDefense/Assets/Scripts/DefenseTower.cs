@@ -11,18 +11,18 @@ public class DefenseTower : Tower
         
     }
 
-    public void LoseHealth()
-    {
-        health--;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
+    //public void LoseHealth()
+    //{
+    //    health--;
+    //    if (health <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
 
-    private void Die()
-    {
-        Debug.Log("Defense Tower is Dead");
-        Destroy(gameObject);
-    }
+    //private void Die()
+    //{
+    //    Debug.Log("Defense Tower is Dead");
+    //    Destroy(gameObject);
+    //}
 }

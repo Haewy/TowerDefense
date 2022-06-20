@@ -35,20 +35,20 @@ public class AttackTower : Tower //Attached to Attack Tower prefab
         //Set values of item
         shotItem.GetComponent<ShotItem>().Init(damage);
     }
-    public void LoseHealth() 
-    {
-        health--;
-        if (health <= 0)
-            Die();
-    }
+    //public void LoseHealth() 
+    //{
+    //    health--;
+    //    if (health <= 0)
+    //        Die();
+    //}
 
-    public void Die()
-    {
-        //Make a sound
+    //public void Die()
+    //{
+    //    //Make a sound
 
-        //Destroy itself
-        Destroy(gameObject);
-    }
+    //    //Destroy itself
+    //    Destroy(gameObject);
+    //}
 
     // Update is called once per frame
     void Update()
