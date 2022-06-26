@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4137691735603800521}
   - component: {fileID: -836351305925745088}
   - component: {fileID: -4177507887783078187}
+  - component: {fileID: 478209927313525503}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -102,6 +103,8 @@ MonoBehaviour:
   speed: 0.7
   intervalDying: 1
   intervalColor: 0.1
+  anim: {fileID: -4177507887783078187}
+  attackIterval: 1
 --- !u!61 &-836351305925745088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +150,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &478209927313525503
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776753579551760613}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -9,8 +9,14 @@ public class Enemy : MonoBehaviour
     public int health =8, attack;
     public float speed =1, intervalDying =1 , intervalColor = 0.1f;
 
+    public Animator anim;
+    public float attackIterval;
+    private Coroutine attackOrder;
+    private Tower detectedTower;
+
     void Move() 
     {
+       
         transform.Translate(-transform.right * speed * Time.deltaTime);
     }
 
@@ -49,10 +55,64 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    IEnumerator Attack()
+    {
+        anim.Play("Attacking",0,0);
+        yield return new WaitForSeconds(attackIterval);
+        // Store the Coroutine to hold a moment until getting a response that a tower is dead
+        // If the Coroutine is not held, Attack will keep running
+        attackOrder = StartCoroutine(Attack());
+
+    }
+    public void Damage()
+    {
+        bool towerDied = detectedTower.LoseHealth(attack);
+
+        // Line 69 
+        // It says that NullReferenceException: Object ref not set to an instance of an obj....
+        // It only happens when Chicken makes towers died. 
+  
+        if (towerDied)
+        {
+            //Activate the animator's value in order to go back to the Move animation
+            anim.SetBool("TowerIsDead", true);
+            anim.SetBool("DetectedTower", false);
+
+            detectedTower = null;
+            StopCoroutine(attackOrder);
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
-        Move() ;
+        if (!detectedTower)
+        {
+            Move();
+        }
+        
 
     }
+    // Detect Towers
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (detectedTower)
+        {
+            return; 
+        }
+        if (collision.tag == "Tower")
+        {
+            // Alert 
+            Debug.Log("Detect you ! Tower !");
+            anim.SetBool("DetectedTower", true);
+          
+            Debug.Log("DT value" + anim.GetBool("DetectedTower"));
+            detectedTower = collision.GetComponent<Tower>();
+            // Store the Coroutine to hold a moment until getting a response that a tower is dead
+            // If the Coroutine is not held, Attack will keep running
+            attackOrder = StartCoroutine(Attack());
+        }
+    }
+
+
 }
