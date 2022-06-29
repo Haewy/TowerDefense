@@ -28,7 +28,7 @@ public class Tower: MonoBehaviour
 
         Debug.Log("Tower is dead");
         Destroy(gameObject);
-
+        // Destroy(gameObject, 1.9f);
 
 
     }

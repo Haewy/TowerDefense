@@ -66,12 +66,17 @@ public class Enemy : MonoBehaviour
     }
     public void Damage()
     {
-        bool towerDied = detectedTower.LoseHealth(attack);
+        bool towerDied = false;
+        if (detectedTower != null)
+        {
+           towerDied = detectedTower.LoseHealth(attack);
+        }
+        
 
         // Line 69 
         // It says that NullReferenceException: Object ref not set to an instance of an obj....
         // It only happens when Chicken makes towers died. 
-  
+
         if (towerDied)
         {
             //Activate the animator's value in order to go back to the Move animation
@@ -79,6 +84,7 @@ public class Enemy : MonoBehaviour
             anim.SetBool("DetectedTower", false);
 
             detectedTower = null;
+
             StopCoroutine(attackOrder);
         }
 

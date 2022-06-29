@@ -104,7 +104,7 @@ MonoBehaviour:
   intervalDying: 1
   intervalColor: 0.1
   anim: {fileID: 6651097096516127542}
-  attackIterval: 1
+  attackIterval: 2
 --- !u!61 &-1815432285866355159
 BoxCollider2D:
   m_ObjectHideFlags: 0
