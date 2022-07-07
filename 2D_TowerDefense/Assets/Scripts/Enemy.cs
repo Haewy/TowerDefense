@@ -118,6 +118,11 @@ public class Enemy : MonoBehaviour
             // If the Coroutine is not held, Attack will keep running
             attackOrder = StartCoroutine(Attack());
         }
+        if (collision.tag =="Protected")
+        {
+            Debug.Log("DAMAGE DONE IN PROTECTED ZONE");
+            GameManager.instance.health.ReceiveDamage(1);
+        }
     }
 
 
