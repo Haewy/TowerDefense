@@ -13,12 +13,12 @@ public class HealthSystem : MonoBehaviour
     public int defaultHealth;
     // Current(real time) health value
     public int health;
-    public Collider2D protectedZone;
+    //public Collider2D protectedZone;
 
     // Set the default values
     public void Init()
     {
-        protectedZone = GameObject.Find("ProtectedZone ").GetComponent<Collider2D>();
+        //protectedZone = GameObject.Find("ProtectedZone ").GetComponent<Collider2D>();
         panel_GameOver.SetActive(false);
         health = defaultHealth;
         UpdateHealthUI();
@@ -59,12 +59,12 @@ public class HealthSystem : MonoBehaviour
     //    UpdateHealthUI();
     //}
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag=="Enemy")
-        {
-            Debug.Log("DAMAGE DONE IN PROTECTED ZONE");
-            ReceiveDamage(1);
-        }
-    }
+    //public void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag=="Enemy")
+    //    {
+    //        Debug.Log("DAMAGE DONE IN PROTECTED ZONE");
+    //        ReceiveDamage(1);
+    //    }
+    //}
 }

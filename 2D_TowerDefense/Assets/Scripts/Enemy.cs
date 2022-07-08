@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour
     {
         // Make a noise for die                         // JUST TESTING 
          AudioManager.i.Play(AudioManager.Sound.two);
+        // Call the score to add points                         // JUST TESTING 
+        GameManager.instance.score.AddPoints(15);
         // Waiting for the sound being played               JUST TESTING 
         yield return new WaitForSeconds(intervalDying);
         // destroy then

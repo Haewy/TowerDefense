@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Test_Spawner spawner;
     public HealthSystem health;
     public CurrencySystem currency;
+    public Score score;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         spawner = GetComponent<Test_Spawner>();
         health = GetComponent<HealthSystem>();
         currency = GetComponent<CurrencySystem>();
+        score = GetComponent<Score>();
     }
 
     private void Start()
