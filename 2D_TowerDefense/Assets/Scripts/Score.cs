@@ -16,7 +16,7 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     // Update is called once per frame
     void Update()
     {
-        txtScore.text = currentScore.ToString();
+        txtScore.text = "Score " + currentScore.ToString();
     }
 
     public void AddPoints(int points) 

@@ -11,6 +11,8 @@ public class HealthSystem : MonoBehaviour
     public GameObject panel_GameOver;
     [Header("Assign a default|initial value")]
     public int defaultHealth;
+    [Header("Assign timer")]
+    public Timer timer;
     // Current(real time) health value
     public int health;
     //public Collider2D protectedZone;
@@ -19,6 +21,7 @@ public class HealthSystem : MonoBehaviour
     public void Init()
     {
         //protectedZone = GameObject.Find("ProtectedZone ").GetComponent<Collider2D>();
+        timer = FindObjectOfType<Timer>();
         panel_GameOver.SetActive(false);
         health = defaultHealth;
         UpdateHealthUI();
@@ -30,10 +33,10 @@ public class HealthSystem : MonoBehaviour
         // Check if the current health is available to be reduced
         if (health>=1)
         {
-            if (Time.timeScale ==0)
-            {
-                Time.timeScale = 1;
-            }
+            //if (Time.timeScale ==0)
+            //{
+            //    Time.timeScale = 1;
+            //}
             health -= val;
             UpdateHealthUI();
         }
@@ -42,7 +45,8 @@ public class HealthSystem : MonoBehaviour
         {
             panel_GameOver.SetActive(true);
             // Code for freeze the game?
-            Time.timeScale = 0;
+            //Time.timeScale = 0;//not working because it is not called in update
+            timer.GameOver();//timer stops
         }
     }
 

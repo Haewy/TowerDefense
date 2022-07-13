@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     public float time;
     public bool gameON;
     public GameObject pauseMenu;
+    public bool gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Pause();
         }
@@ -31,7 +32,7 @@ public class Timer : MonoBehaviour
         {
             Time.timeScale = 1;
             time += Time.deltaTime;
-            txtTimer.text = time.ToString("F2");
+            txtTimer.text = "Time  " + time.ToString("F2");
             pauseMenu.SetActive(false);
         }
         else
@@ -40,11 +41,19 @@ public class Timer : MonoBehaviour
             Time.timeScale = 0;
             //nothing
         }
+        if (gameOver)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     public void Pause()
     {
         gameON = !gameON;
+    }    
+    public void GameOver()
+    {
+        gameOver = true ;
     }
     public void GoToTheMenu()
     {
