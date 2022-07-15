@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager i;
 
     public AudioSource audioSrc;
+    //public AudioSource[] audioS;
 
     public AudioClip sOne, sTwo, sThree, sFour, sFive, sSix;
 
@@ -18,13 +19,17 @@ public class AudioManager : MonoBehaviour
         {
             i = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
-
+        //audioS = new AudioSource[6];
         sOne = Resources.Load<AudioClip>("1");
         sTwo = Resources.Load<AudioClip>("2");
         sThree = Resources.Load<AudioClip>("3");

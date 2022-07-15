@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void Save()
+    public void Save()//called from ChangeVolume()
     {
         PlayerPrefs.SetFloat("musicVolume", sliderVolume.value);
         
@@ -74,5 +74,13 @@ public class SoundManager : MonoBehaviour
     public void PlayClick()
     {
         musicSFXSource[1].Play();
+    }
+    public void Test1()
+    {
+        Debug.Log("First");
+    }
+    public void Test2()
+    {
+        Debug.Log("Second");
     }
 }

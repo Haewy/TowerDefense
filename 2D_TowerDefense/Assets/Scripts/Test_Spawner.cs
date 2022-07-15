@@ -68,9 +68,9 @@ public class Test_Spawner : MonoBehaviour
                     // Use the amount of cost from the currency available
                     GameManager.instance.currency.Use(towerCost);
                     // Spawn the tower
-                    SpawnTower(cellPosCenter);
+                    SpawnTower(cellPosCenter, cellPos);
                     // Then disable the collider
-                    spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.None);
+                    spawnTilemap.SetColliderType(cellPos, Tile.ColliderType.None); 
                 }
                 else
                 { Debug.Log("Not enough currency"); }
@@ -95,10 +95,12 @@ public class Test_Spawner : MonoBehaviour
                 return -1;
         }
     }
-    void SpawnTower(Vector3 position) 
+    void SpawnTower(Vector3 position, Vector3Int cellPos) 
     {
         GameObject tower = Instantiate(towerPrefabs[spawnID], spawnTowerRoot);
         tower.transform.position = position;
+        Tower towerScript = tower.GetComponent<Tower>();
+        towerScript.SetTilePosition(cellPos, spawnTilemap);
         DeselectTower();
     }
     public void SelectTower(int id)

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+
 public class Tower: MonoBehaviour
 {
 
@@ -10,6 +12,8 @@ public class Tower: MonoBehaviour
     //Cost value
     public int cost;//it goes to its mother class: Tower
 
+    public Vector3Int pos;
+    public Tilemap spawnTilemap;
 
     // Lose health and die
     public bool LoseHealth(int damage)
@@ -25,12 +29,21 @@ public class Tower: MonoBehaviour
     }
     public void Die()
     {
-
+        FreeCollider();
         Debug.Log("Tower is dead");
         Destroy(gameObject);
         // Destroy(gameObject, 1.9f);
 
 
+    }
+    public void SetTilePosition(Vector3Int cellPos, Tilemap tilemap)
+    {
+        this.pos = cellPos;
+        this.spawnTilemap = tilemap;
+    }
+    public void FreeCollider() 
+    {
+        spawnTilemap.SetColliderType(pos, Tile.ColliderType.Sprite);
     }
 
 }
