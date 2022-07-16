@@ -10,7 +10,8 @@ public class menu : MonoBehaviour
 
     public void Start()
     {
-        settingMenu.SetActive(false);
+        //settingMenu.SetActive(false);
+        settingMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, -15f);
     }
     public void GoToTheGame() 
     {
@@ -19,11 +20,13 @@ public class menu : MonoBehaviour
     public void GoToTheMenu() 
     {
         Debug.Log("ESTA WEAAAAAAAAAAAAAAAAAAA");
-        settingMenu.SetActive(true);
+        //settingMenu.SetActive(true);
+        settingMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, 120f);
     }
     public void GoBackToTheMainMenu()
     {
-        settingMenu.SetActive(false);
+        //settingMenu.SetActive(false);
+        settingMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, 0f);
     }
 
     public void ExitTheGame()

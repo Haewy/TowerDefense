@@ -74,6 +74,7 @@ public class SoundManager : MonoBehaviour
     public void PlayClick()
     {
         musicSFXSource[1].Play();
+        
     }
     public void Test1()
     {
