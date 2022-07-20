@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Tower
   - Protected
+  - highlight
   layers:
   - Default
   - TransparentFX
