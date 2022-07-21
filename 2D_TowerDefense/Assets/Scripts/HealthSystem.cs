@@ -13,6 +13,9 @@ public class HealthSystem : MonoBehaviour
     public int defaultHealth;
     [Header("Assign timer")]
     public Timer timer;
+    [Header("Assign Explosion and black spot")]
+    public GameObject sExplosion;
+    public GameObject blackSpot;
     // Current(real time) health value
     public int health;
     //public Collider2D protectedZone;
@@ -28,7 +31,7 @@ public class HealthSystem : MonoBehaviour
     }
 
     // Discount health and Check if the game is over
-    public void ReceiveDamage(int val)
+    public void ReceiveDamage(Vector3 aVector)
     {   
         // Check if the current health is available to be reduced
         if (health>=1)
@@ -37,12 +40,19 @@ public class HealthSystem : MonoBehaviour
             //{
             //    Time.timeScale = 1;
             //}
-            health -= val;
+            health -= 1;
+            Instantiate(sExplosion, aVector, Quaternion.identity);
+            Instantiate(blackSpot, aVector, Quaternion.identity);
+            // Make a noise for achieve explosing                       // JUST TESTING 
+            AudioManager.i.Play(AudioManager.Sound.seven);
+
             UpdateHealthUI();
         }
         // Check if the current health leads to Game Over  
         if (health<=0) 
         {
+            AudioManager.i.Play(AudioManager.Sound.five);
+
             panel_GameOver.SetActive(true);
             // Code for freeze the game?
             //Time.timeScale = 0;//not working because it is not called in update

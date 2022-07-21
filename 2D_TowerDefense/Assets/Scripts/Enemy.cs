@@ -47,15 +47,19 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Die()
     {
+        
+        
+        // Waiting for the sound being played               JUST TESTING 
+        yield return new WaitForSeconds(intervalDying);
         // Make a noise for die                         // JUST TESTING 
          AudioManager.i.Play(AudioManager.Sound.two);
         // Call the score to add points                         // JUST TESTING 
         GameManager.instance.score.AddPoints(15);
-        // Waiting for the sound being played               JUST TESTING 
-        yield return new WaitForSeconds(intervalDying);
         // destroy then
         Destroy(gameObject);
     }
+    public void DestroyItself()
+    { Destroy(gameObject); }
 
     IEnumerator Attack()
     {
@@ -123,7 +127,8 @@ public class Enemy : MonoBehaviour
         if (collision.tag =="Protected")
         {
             Debug.Log("DAMAGE DONE IN PROTECTED ZONE");
-            GameManager.instance.health.ReceiveDamage(1);
+            GameManager.instance.health.ReceiveDamage(this.transform.position);
+            Invoke("DestroyItself", 1f);
         }
     }
 

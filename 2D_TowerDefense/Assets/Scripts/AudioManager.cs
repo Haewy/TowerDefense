@@ -9,9 +9,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource audioSrc;
     //public AudioSource[] audioS;
 
-    public AudioClip sOne, sTwo, sThree, sFour, sFive, sSix;
+    public AudioClip sOne, sTwo, sThree, sFour, sFive, sSix, sSeven, sEigth;
 
-    public enum Sound { one =1 ,  two , three , four, five, six}
+    public enum Sound { one =1 ,  two , three , four, five, six,seven, eigth}
     // Start is called before the first frame update
     private void Awake()
     {
@@ -36,6 +36,8 @@ public class AudioManager : MonoBehaviour
         sFour = Resources.Load<AudioClip>("4");
         sFive = Resources.Load<AudioClip>("5");
         sSix = Resources.Load<AudioClip>("6");
+        sSeven = Resources.Load<AudioClip>("7");
+        sEigth = Resources.Load<AudioClip>("8");
     }
     public void Play(Sound s)
     {
@@ -68,7 +70,16 @@ public class AudioManager : MonoBehaviour
             case Sound.six:
                 audioSrc.PlayOneShot(sSix);
 
+                break;            
+            case Sound.seven:
+                audioSrc.PlayOneShot(sSeven);
+
+                break;    
+            case Sound.eigth:
+                audioSrc.PlayOneShot(sEigth);
+
                 break;
+
             default:
                 break;
         }

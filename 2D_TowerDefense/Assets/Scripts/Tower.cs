@@ -19,6 +19,7 @@ public class Tower: MonoBehaviour
     public bool LoseHealth(int damage)
     {
         health--;
+        StartCoroutine(Blink());
         if (health == 0)
         {
 
@@ -45,5 +46,12 @@ public class Tower: MonoBehaviour
     {
         spawnTilemap.SetColliderType(pos, Tile.ColliderType.Sprite);
     }
-
+    IEnumerator Blink()
+    {// Chance color
+        GetComponent<SpriteRenderer>().color = Color.red;
+        // Wait a moment with changed color
+        yield return new WaitForSeconds(.15f);
+        // Bring back the original color
+        GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }

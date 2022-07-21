@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Mathematics;
 using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
@@ -12,6 +13,10 @@ public class Timer : MonoBehaviour
     public bool gameON;
     public GameObject pauseMenu;
     public bool gameOver = false;
+    public float sunCountback = 5;
+    public int level = 1;
+    [Header("Assign Sun")]
+    public GameObject sun;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sunCountback -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.P))
         {
             Pause();
@@ -45,6 +51,19 @@ public class Timer : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+
+        if(sunCountback<=0) /*(((int)time)%5==1)*/
+        {
+            Debug.Log("Hey a Sun");
+            sunCountback = 5*level;
+            PopeUpaSun();
+        }
+    }
+    public void PopeUpaSun()
+    {
+        Vector3 sunPosition = new Vector3(UnityEngine.Random.Range(0, 6f), UnityEngine.Random.Range(0, 6f), 0);
+        GameObject aSun = Instantiate(sun, sunPosition, Quaternion.identity);
+
     }
 
     public void Pause()
