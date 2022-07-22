@@ -7,6 +7,12 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
 {
     public Text txtScore;
     public float currentScore;
+
+    // For victory 
+    [Header("Assign Victory panel")]
+    public GameObject panel_Victory;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +23,18 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     void Update()
     {
         txtScore.text = "Score " + currentScore.ToString();
+        // Trigger the victory 
+        if (currentScore == 50.0f)
+        {
+            Debug.Log("You reach the score for next level");
+            panel_Victory.SetActive(true);
+        }
+
     }
 
     public void AddPoints(int points) 
     {
         currentScore += points;
+
     }
 }

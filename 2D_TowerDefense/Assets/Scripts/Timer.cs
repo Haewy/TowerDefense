@@ -17,6 +17,10 @@ public class Timer : MonoBehaviour
     public int level = 1;
     [Header("Assign Sun")]
     public GameObject sun;
+
+    //For record
+    public float timeForRecord;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,8 @@ public class Timer : MonoBehaviour
         }
         if (gameOver)
         {
+            //Save the time
+            timeForRecord = Time.timeScale;
             Time.timeScale = 0;
         }
 
