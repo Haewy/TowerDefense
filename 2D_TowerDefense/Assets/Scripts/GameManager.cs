@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public HealthSystem health;
     public CurrencySystem currency;
     public Score score;
+    public Gamer gamer;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         health = GetComponent<HealthSystem>();
         currency = GetComponent<CurrencySystem>();
         score = GetComponent<Score>();
+        gamer = GameObject.Find("Gamer").GetComponent<Gamer>();
     }
 
     private void Start()
@@ -34,4 +36,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GetComponent<EnemySpawner>().StartSpawning();
     }
+    public void SetGamer(Gamer gamer)
+    {
+        this.gamer = gamer;
+    }
+        
 }

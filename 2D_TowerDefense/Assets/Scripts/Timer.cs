@@ -69,7 +69,7 @@ public class Timer : MonoBehaviour
     {
         Vector3 sunPosition = new Vector3(UnityEngine.Random.Range(0, 6f), UnityEngine.Random.Range(0, 6f), 0);
         GameObject aSun = Instantiate(sun, sunPosition, Quaternion.identity);
-
+        //print("hey a sun");
     }
 
     public void Pause()
