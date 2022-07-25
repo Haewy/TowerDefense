@@ -7,6 +7,7 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
 {
     public Text txtScore;
     public float currentScore;
+    public bool onlyOnce;
 
     // For victory 
     [Header("Assign Victory panel")]
@@ -17,6 +18,7 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     void Start()
     {
         currentScore = 0;
+        onlyOnce = false;
     }
 
     // Update is called once per frame
@@ -24,10 +26,16 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     {
         txtScore.text = "Score " + currentScore.ToString();
         // Trigger the victory 
-        if (currentScore == 50.0f)
+        if (currentScore >= 10.0f && !onlyOnce)
         {
+            onlyOnce = true;
             Debug.Log("You reach the score for next level");
             panel_Victory.SetActive(true);
+            //Freeze the game
+            //From Timer script switch the bool GameOver to true using GameManager to get Timer script
+            GameManager.instance.timer.gameOver = true;
+            //Save data for this level using GamerManager to get Gamer and save data
+            GameManager.instance.SaveDataFromVictory();
         }
 
     }

@@ -13,4 +13,9 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void GoToNextLevel()
+    {
+        Debug.Log("It is going to the next level...."+ SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
 }

@@ -2287,7 +2287,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 755291147}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: GoToNextLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10960,7 +10960,6 @@ MonoBehaviour:
   - {fileID: 1680577090}
   - {fileID: 383630995}
   spawnInterval: 2
-  levelSpawner: 0
 --- !u!114 &1951003855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10975,7 +10974,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScore: {fileID: 2002046927}
   currentScore: 0
-  onlyOnce: 0
   panel_Victory: {fileID: 131450806}
 --- !u!1 &1991395311
 GameObject:

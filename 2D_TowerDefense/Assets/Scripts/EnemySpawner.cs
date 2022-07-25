@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EnemySpawner : MonoBehaviour
@@ -13,7 +14,8 @@ public class EnemySpawner : MonoBehaviour
     public List<Transform> spawnPoints;
     // Interval
     public float spawnInterval = 2f;
-
+    //how many type of enemies are going to be spawned
+    public int levelSpawner;
     private void Awake()
     {
         instance = this;
@@ -22,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
     // To be called once the game starts
     public void StartSpawning()
     {
+        levelSpawner = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(SpawnDelay());
     }
 
@@ -38,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int randomID = UnityEngine.Random.Range(0, prefabs.Count);
+        int randomID = UnityEngine.Random.Range(0, levelSpawner);
         int randomSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Count);
 
         GameObject spawnedEnemy = Instantiate(prefabs[randomID], spawnPoints[randomSpawnPoint]);

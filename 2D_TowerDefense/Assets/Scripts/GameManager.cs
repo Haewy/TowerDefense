@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public CurrencySystem currency;
     public Score score;
     public Gamer gamer;
+    public Timer timer;
 
     private void Awake()
     {
@@ -21,11 +22,17 @@ public class GameManager : MonoBehaviour
         health = GetComponent<HealthSystem>();
         currency = GetComponent<CurrencySystem>();
         score = GetComponent<Score>();
+        timer = GameObject.Find("UI/TextTimer").GetComponent<Timer>();
         gamer = GameObject.Find("Gamer").GetComponent<Gamer>();
+
     }
 
     private void Start()
     {
+        //if (gamer == null)
+        //{
+        //    gamer = gameObject.AddComponent<Gamer>();
+        //}
         GetComponent<CurrencySystem>().Init();
         GetComponent<HealthSystem>().Init();
 
@@ -39,6 +46,15 @@ public class GameManager : MonoBehaviour
     public void SetGamer(Gamer gamer)
     {
         this.gamer = gamer;
+    }
+
+    public void SaveDataFromGamerOnPause() //gamer script has the function to save the statistics
+    {
+        this.gamer.SaveLevel(gamer.currentLevel, this.score.currentScore, this.timer.time, false);
+    }
+    public void SaveDataFromVictory()
+    {
+        this.gamer.SaveLevel(gamer.currentLevel, this.score.currentScore, this.timer.time, true);
     }
         
 }

@@ -19,7 +19,7 @@ public class menu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
-    public void GoToTheMenu() 
+    public void GoToTheSettigMenu() 
     {
         Debug.Log("ESTA WEAAAAAAAAAAAAAAAAAAA");
         //settingMenu.SetActive(true);
@@ -32,10 +32,15 @@ public class menu : MonoBehaviour
         gamersMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, 120f);
     }
 
-    public void GoBackToTheMainMenu()//add return button
+    public void GoBackToTheMainMenu()//for return button that is on setting menu
     {
         //settingMenu.SetActive(false);
         settingMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, 0f);
+    }    
+    public void GoBackToTheMainMenuFromGamersMenu()//for return button that is on gamers menu
+    {
+        //settingMenu.SetActive(false);
+        gamersMenu.transform.position = new Vector3(settingMenu.transform.position.x, settingMenu.transform.position.y, 0f);
     }
 
     public void ExitTheGame()

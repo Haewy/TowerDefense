@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
         if (gameOver)
         {
             //Save the time
-            timeForRecord = Time.timeScale;
+            timeForRecord = time;
             Time.timeScale = 0;
         }
 

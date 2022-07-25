@@ -10975,7 +10975,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScore: {fileID: 2002046927}
   currentScore: 0
-  onlyOnce: 0
   panel_Victory: {fileID: 131450806}
 --- !u!1 &1991395311
 GameObject:

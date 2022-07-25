@@ -12,6 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/HaewonScene.unity
     guid: ef1b4d5bc29f3804eb14c69776738c4b
   - enabled: 1
+    path: Assets/Scenes/HaewonScene 2.unity
+    guid: 17cad7080ebc7ab42a504a3894cec71c
+  - enabled: 1
+    path: Assets/Scenes/HaewonScene 3.unity
+    guid: d5198c4a9eb6af047940153e6b760419
+  - enabled: 1
+    path: Assets/Scenes/HaewonScene 4.unity
+    guid: 27bb75d3978c0eb449767c4900a95296
+  - enabled: 1
+    path: Assets/Scenes/HaewonScene 5.unity
+    guid: a37f09c792d50844cb1e6658e472adeb
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
