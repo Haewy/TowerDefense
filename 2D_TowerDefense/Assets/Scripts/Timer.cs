@@ -17,7 +17,13 @@ public class Timer : MonoBehaviour
     public int level = 1;
     [Header("Assign Sun")]
     public GameObject sun;
+    
+   
 
+    // For victory 
+    [Header("Assign Victory panel")]
+    public GameObject panel_Victory;
+    public bool onlyOnce;
     //For record
     public float timeForRecord;
 
@@ -27,6 +33,8 @@ public class Timer : MonoBehaviour
         txtTimer = GetComponent<Text>();
         gameON = true;
         pauseMenu.SetActive(false);
+        onlyOnce = false;
+        level =SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
@@ -61,13 +69,26 @@ public class Timer : MonoBehaviour
         if(sunCountback<=0) /*(((int)time)%5==1)*/
         {
             Debug.Log("Hey a Sun");
-            sunCountback = 5*level;
+            sunCountback = 5+level;
             PopeUpaSun();
+        }
+        if (time>=(110f+(level*10)) && onlyOnce)
+        {
+            Debug.Log("CALLING VICTORY FROM TIMER");
+            gameOver = true;
+            panel_Victory.SetActive(true);
+            onlyOnce = false;
+        }        
+        if (time>=(100f + (level * 5)) && !onlyOnce && time < (100f + (level * 6)))
+        {
+            Debug.Log("Deactivates enemy spawner FROM TIMER");
+            GameManager.instance.GetComponent<EnemySpawner>().enabled = false ;
+            onlyOnce = true;
         }
     }
     public void PopeUpaSun()
     {
-        Vector3 sunPosition = new Vector3(UnityEngine.Random.Range(0, 6f), UnityEngine.Random.Range(0, 6f), 0);
+        Vector3 sunPosition = new Vector3(UnityEngine.Random.Range(-9.35f, 8.8f), UnityEngine.Random.Range(-5f, 3.8f), 0);
         GameObject aSun = Instantiate(sun, sunPosition, Quaternion.identity);
         //print("hey a sun");
     }

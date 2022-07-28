@@ -98,8 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05997dc62403a234cac0bd77efdaed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 29
+  health: 18
   cost: 4
+  pos: {x: 0, y: 0, z: 0}
+  spawnTilemap: {fileID: 0}
   animator: {fileID: 0}
 --- !u!61 &217534739391192379
 BoxCollider2D:

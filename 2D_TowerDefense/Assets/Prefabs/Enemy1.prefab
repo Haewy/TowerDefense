@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   attack: 1
-  speed: 0.5
+  speed: 0.66
   intervalDying: 1
   intervalColor: 0.1
   anim: {fileID: 5214340140055388100}

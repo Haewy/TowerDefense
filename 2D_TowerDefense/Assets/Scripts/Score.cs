@@ -26,7 +26,7 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     {
         txtScore.text = "Score " + currentScore.ToString();
         // Trigger the victory 
-        if (currentScore >= 10.0f && !onlyOnce)
+        if (currentScore >= 1000.0f && !onlyOnce)
         {
             onlyOnce = true;
             Debug.Log("You reach the score for next level");

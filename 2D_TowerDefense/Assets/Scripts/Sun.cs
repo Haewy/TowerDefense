@@ -28,9 +28,9 @@ public class Sun : MonoBehaviour
     {
         transform.Translate(new Vector3(0.001f, 0.001f, 0));    
     }
-    //private void OnMouseEnter()
-    //{
-    //    Vector3 sc = transform.localScale;
-    //    sc*= 1.2f; 
-    //}
+    private void OnMouseEnter()
+    {
+        Vector3 sc = transform.localScale;
+        sc *= 1.2f;
+    }
 }
