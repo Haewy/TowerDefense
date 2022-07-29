@@ -39,8 +39,16 @@ public class Test_Spawner : MonoBehaviour
         // Dectec the mouse clicking
         if (Input.GetMouseButtonDown(0))
         {
-            // Get the world space position of the mouse
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //RaycastHit hit;
+            //if (Physics.Raycast(Input.mousePosition, Vector3.forward, out hit))
+            //{
+            //    Debug.Log(hit.collider.name);
+            //}
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //Debug.Log(Physics.Raycast(ray, out hit));
+
+           // Get the world space position of the mouse
+           Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             // Get the position of the cell in the tilemap

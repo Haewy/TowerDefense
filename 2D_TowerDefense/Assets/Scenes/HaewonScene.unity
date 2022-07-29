@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24.820007, y: -8.600006}
+  m_AnchoredPosition: {x: -24.820007, y: -8.600037}
   m_SizeDelta: {x: 84.66, y: 34.7}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &50231124
@@ -421,13 +421,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131450807}
+  - component: {fileID: 131450808}
   m_Layer: 5
   m_Name: Victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &131450807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -451,6 +452,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &131450808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131450806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8c27353b2bec14da9e8d3703fcd179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &230779375
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +475,9 @@ GameObject:
   - component: {fileID: 230779376}
   - component: {fileID: 230779378}
   - component: {fileID: 230779377}
+  - component: {fileID: 230779379}
+  - component: {fileID: 230779381}
+  - component: {fileID: 230779380}
   m_Layer: 0
   m_Name: Ground_01
   m_TagString: Untagged
@@ -1025,6 +1041,65 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &230779379
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230779375}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
+--- !u!66 &230779380
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230779375}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!50 &230779381
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230779375}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &246252628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 755291147}
+      - m_Target: {fileID: 131450808}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: GoToNextLevel
         m_Mode: 1
@@ -3291,6 +3366,7 @@ MonoBehaviour:
   sSix: {fileID: 0}
   sSeven: {fileID: 0}
   sEigth: {fileID: 0}
+  sNine: {fileID: 0}
 --- !u!4 &684772670
 Transform:
   m_ObjectHideFlags: 0
@@ -4882,7 +4958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1409488132
 RectTransform:
   m_ObjectHideFlags: 0

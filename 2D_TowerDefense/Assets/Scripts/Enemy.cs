@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
 {
     [Header ("Assign values")]
     public int health =8, attack;
-    public float speed =1, intervalDying =1 , intervalColor = 0.1f;
+    public float speed =1 , intervalColor = 0.1f;
+    private float intervalDying = .15f;
 
     public Animator anim;
     public float attackIterval;
@@ -48,14 +49,14 @@ public class Enemy : MonoBehaviour
     IEnumerator Die()
     {
         
-        
+                // Make a noise for die                         // JUST TESTING 
+         AudioManager.i.Play(AudioManager.Sound.two);
+
+        // destroy then
         // Waiting for the sound being played               JUST TESTING 
         yield return new WaitForSeconds(intervalDying);
-        // Make a noise for die                         // JUST TESTING 
-         AudioManager.i.Play(AudioManager.Sound.two);
         // Call the score to add points                         // JUST TESTING 
         GameManager.instance.score.AddPoints(15);
-        // destroy then
         Destroy(gameObject);
     }
     public void DestroyItself()

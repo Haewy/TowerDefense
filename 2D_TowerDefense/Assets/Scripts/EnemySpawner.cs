@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     // Spawn point
     public List<Transform> spawnPoints;
     // Interval
-    private float spawnInterval = 3f;
+    private float spawnInterval = 3.3f;
     //how many type of enemies are going to be spawned
     public int levelSpawner;
     private void Awake()
@@ -44,6 +44,11 @@ public class EnemySpawner : MonoBehaviour
     // To be looping
     IEnumerator SpawnDelay()
     {
+        if (GameManager.instance.timer.time>77)
+        {
+            spawnInterval = 1.3f;
+            Debug.Log("Start spawning more frequently from now on");
+        }
         // Spawn
         SpawnEnemy();
         // Wait
