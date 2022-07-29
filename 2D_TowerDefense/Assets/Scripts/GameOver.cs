@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
     }
     public void GoToNextLevel()
     {
+        GameManager.instance.SaveDataFromVictory();
         Debug.Log("It is going to the next level...."+ SceneManager.GetActiveScene().buildIndex + 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }

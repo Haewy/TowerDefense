@@ -36,12 +36,14 @@ public class IncomeTower : Tower
 
     public void IncreaseIncome()
     {
+
         GameManager.instance.currency.Gain(incomeValue);
         StartCoroutine(ShowCoin());
     }
 
     IEnumerator ShowCoin()
     {
+        AudioManager.i.Play(AudioManager.Sound.nine);
         coinImg.SetActive(true);
         // The waiting
         yield return new WaitForSeconds(appearingTime);

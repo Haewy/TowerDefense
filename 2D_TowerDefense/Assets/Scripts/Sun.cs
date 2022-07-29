@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sun : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class Sun : MonoBehaviour
 
     public void DestroyItself()
     {
-        Destroy(gameObject);
+        GetComponent<Image>().enabled = false;
+        Debug.Log("ErasedNOW!");
+        Destroy(gameObject,1f);
     }
     public void AddSun()
     {
+        AudioManager.i.Play(AudioManager.Sound.nine);
         GameManager.instance.score.AddPoints(5);
         GameManager.instance.currency.Gain(5);
         DestroyItself();

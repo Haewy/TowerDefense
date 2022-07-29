@@ -35,6 +35,8 @@ public class Timer : MonoBehaviour
         pauseMenu.SetActive(false);
         onlyOnce = false;
         level =SceneManager.GetActiveScene().buildIndex;
+        panel_Victory.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -72,14 +74,14 @@ public class Timer : MonoBehaviour
             sunCountback = 5+level;
             PopeUpaSun();
         }
-        if (time>=(110f+(level*10)) && onlyOnce)
+        if (time>=(100f+(level*10)) && onlyOnce)
         {
             Debug.Log("CALLING VICTORY FROM TIMER");
             gameOver = true;
             panel_Victory.SetActive(true);
             onlyOnce = false;
         }        
-        if (time>=(100f + (level * 5)) && !onlyOnce && time < (100f + (level * 6)))
+        if (time>=(90f + (level * 5)) && !onlyOnce && time < (90f + (level * 6)))
         {
             Debug.Log("Deactivates enemy spawner FROM TIMER");
             GameManager.instance.GetComponent<EnemySpawner>().enabled = false ;

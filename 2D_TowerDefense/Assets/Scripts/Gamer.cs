@@ -211,7 +211,7 @@ public class Gamer : MonoBehaviour
         this.scoreCurrentLevel = PlayerPrefs.GetFloat(aGamer);
         Debug.Log("Gamer"+this.id+ " at level"+this.currentLevel+
             " score accumulated "+this.scoreAccumulated+
-            "best score for current level"+this.scoreCurrentLevel);
+            "best score for current level "+this.scoreCurrentLevel);
         DontDestroyOnLoad(gameObject);
 
         SceneManager.LoadScene(this.currentLevel);
