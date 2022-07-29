@@ -128,6 +128,8 @@ public class Gamer : MonoBehaviour
 
             //go to the next level
             this.currentLevel = this.currentLevel + 1;
+
+            //save that gamer is on next level
             aGamer = "gamer" + this.id.ToString();
             PlayerPrefs.SetInt(aGamer, this.currentLevel);
             //this.levels.Add(new level(this.currentLevel));
