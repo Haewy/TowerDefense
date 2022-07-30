@@ -8,6 +8,7 @@ public class Sun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Invoke("DestroyItself", 2f);
         //CircleCollider2D aColider = gameObject.AddComponent<CircleCollider2D>();
         gameObject.transform.SetParent(GameObject.Find("UI").transform);
@@ -21,12 +22,21 @@ public class Sun : MonoBehaviour
     }
     public void AddSun()
     {
+     
         AudioManager.i.Play(AudioManager.Sound.nine);
         GameManager.instance.score.AddPoints(5);
         GameManager.instance.currency.Gain(5);
         DestroyItself();
     }
-
+    public void OnShineParticle()
+    {
+        GameManager.instance.score.shineParticle.SetActive(true);
+        Invoke("DeShineParticle", 0.8f);
+    }
+    public void DeShineParticle()
+    {
+        GameManager.instance.score.shineParticle.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {

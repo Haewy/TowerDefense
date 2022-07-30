@@ -13,12 +13,18 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     [Header("Assign Victory panel")]
     public GameObject panel_Victory;
 
+    public GameObject shineParticle;
 
+    private void Awake()
+    {
+        shineParticle.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
         currentScore = 0;
         onlyOnce = false;
+
     }
 
     // Update is called once per frame
@@ -38,11 +44,12 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
             GameManager.instance.SaveDataFromVictory();
         }
 
+
     }
 
     public void AddPoints(int points) 
     {
         currentScore += points;
-
+        
     }
 }
