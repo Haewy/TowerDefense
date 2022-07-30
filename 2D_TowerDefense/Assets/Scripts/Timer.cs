@@ -17,8 +17,8 @@ public class Timer : MonoBehaviour
     public int level = 1;
     [Header("Assign Sun")]
     public GameObject sun;
-    
-   
+
+    public Text levelText;
 
     // For victory 
     [Header("Assign Victory panel")]
@@ -36,7 +36,8 @@ public class Timer : MonoBehaviour
         onlyOnce = false;
         level =SceneManager.GetActiveScene().buildIndex;
         panel_Victory.SetActive(false);
-
+        levelText = GameObject.Find("/UI/LevelText").GetComponent<Text>();
+        levelText.text = "Lv. " + level.ToString();
     }
 
     // Update is called once per frame
@@ -79,6 +80,7 @@ public class Timer : MonoBehaviour
             Debug.Log("CALLING VICTORY FROM TIMER");
             gameOver = true;
             panel_Victory.SetActive(true);
+            panel_Victory.GetComponent<GameOver>().ShowScore(GameManager.instance.score.currentScore);
             onlyOnce = false;
         }        
         if (time>=(90f + (level * 5)) && !onlyOnce && time < (90f + (level * 6)))

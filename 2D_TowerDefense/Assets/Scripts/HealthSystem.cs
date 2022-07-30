@@ -21,13 +21,20 @@ public class HealthSystem : MonoBehaviour
     //public Collider2D protectedZone;
 
     // Set the default values
+    public GameObject cross;
+    public GameObject less;
     public void Init()
     {
+        less  = GameObject.Find("/UI/Health/txt_less");
+        cross = GameObject.Find("/UI/Health/txt_cross");
+        less.SetActive(false);
+        cross.SetActive(false);
         //protectedZone = GameObject.Find("ProtectedZone ").GetComponent<Collider2D>();
         timer = FindObjectOfType<Timer>();
         panel_GameOver.SetActive(false);
         health = defaultHealth;
         UpdateHealthUI();
+
     }
 
     // Discount health and Check if the game is over
@@ -40,6 +47,10 @@ public class HealthSystem : MonoBehaviour
             //{
             //    Time.timeScale = 1;
             //}
+
+            less.SetActive(true);
+            cross.SetActive(true);
+            Invoke("disableTxt", 1f);
             health -= 1;
             Instantiate(sExplosion, aVector, Quaternion.identity);
             Instantiate(blackSpot, aVector, Quaternion.identity);
@@ -65,7 +76,11 @@ public class HealthSystem : MonoBehaviour
     {
         txt_Health.text = health.ToString();
     }
-
+    public void disableTxt() 
+    {
+        less.SetActive(false);
+        cross.SetActive(false);
+    }
     // MAYBE Recover Health 
     //public void Recover(int val)
     //{

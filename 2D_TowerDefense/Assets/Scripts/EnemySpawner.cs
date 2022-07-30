@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     private float spawnInterval = 3.3f;
     //how many type of enemies are going to be spawned
     public int levelSpawner;
+
+    public Text dangerText;
     private void Awake()
     {
         instance = this;
@@ -24,6 +26,10 @@ public class EnemySpawner : MonoBehaviour
     // To be called once the game starts
     public void StartSpawning()
     {
+        dangerText = GameObject.Find("/UI/Towers/DangerText").GetComponent<Text>();
+        dangerText.text = "Watch Out! Enemies are Coming!";
+        dangerText.gameObject.SetActive(false);
+        //dangerText.enabled = false;
         Debug.Log("level" + SceneManager.GetActiveScene().buildIndex);
         levelSpawner = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.GetActiveScene().buildIndex>=2)
@@ -44,8 +50,13 @@ public class EnemySpawner : MonoBehaviour
     // To be looping
     IEnumerator SpawnDelay()
     {
-        if (GameManager.instance.timer.time>77)
+        //dangerText.gameObject.SetActive(false);
+        if (GameManager.instance.timer.time>70)
         {
+            
+            dangerText.text = "Watch Out! There are more Coming!";
+            dangerText.gameObject.SetActive(true);
+            Invoke("disableText", 3f);
             spawnInterval = 1.3f;
             Debug.Log("Start spawning more frequently from now on");
         }
@@ -56,7 +67,8 @@ public class EnemySpawner : MonoBehaviour
         // Repeat
         StartCoroutine(SpawnDelay());
     }
-
+    public void disableText()
+    { dangerText.enabled = false; }
     private void SpawnEnemy()
     {
         int randomID = UnityEngine.Random.Range(0, levelSpawner);
