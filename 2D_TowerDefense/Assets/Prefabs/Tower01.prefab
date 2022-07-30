@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 18
-  cost: 5
+  cost: 4
   pos: {x: 0, y: 0, z: 0}
   spawnTilemap: {fileID: 0}
   animator: {fileID: 0}

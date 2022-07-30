@@ -127,10 +127,9 @@ public class Enemy : MonoBehaviour
         }
         if (collision.tag =="Protected")
         {
-            GameManager.instance.score.LosePoints(40);
             Debug.Log("DAMAGE DONE IN PROTECTED ZONE");
             GameManager.instance.health.ReceiveDamage(this.transform.position);
-            Invoke("DestroyItself", .85f);
+            Invoke("DestroyItself", 1f);
         }
     }
 
