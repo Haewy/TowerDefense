@@ -16,6 +16,13 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     public GameObject scoreTemp;
     public Text txtTemp;
     public Color aColor;
+
+    // Particle 
+    public GameObject shinyParticle;
+    private void Awake()
+    {
+        shinyParticle.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
