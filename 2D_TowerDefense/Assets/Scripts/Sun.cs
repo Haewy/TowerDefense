@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Sun : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +26,7 @@ public class Sun : MonoBehaviour
         GameManager.instance.currency.Gain(5);
         DestroyItself();
     }
-    public void OnShinyParticle()
-    {
-        GameManager.instance.score.shinyParticle.SetActive(true);
-        Invoke("DeShinyParticle", 0.8f);
-    }
-    public void DeShinyParticle()
-    {
-        GameManager.instance.score.shinyParticle.SetActive(false);
-    }
+
     // Update is called once per frame
     void Update()
     {

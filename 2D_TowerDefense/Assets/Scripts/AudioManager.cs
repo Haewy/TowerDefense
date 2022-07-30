@@ -48,40 +48,39 @@ public class AudioManager : MonoBehaviour
         {
             
             case Sound.one:
-                audioSrc.volume = 0.2f;
-                audioSrc.PlayOneShot(sOne);
-              
+                audioSrc.PlayOneShot(sOne,0.012f);//launch star from tower
+           
                 break;
             case Sound.two:
-                audioSrc.PlayOneShot(sTwo);
+                audioSrc.PlayOneShot(sTwo,0.12f);//die, enemy dies
         
                 break;
             case Sound.three:
-                audioSrc.PlayOneShot(sThree);
+                audioSrc.PlayOneShot(sThree,0.7f);//hit, enemy is hit
 
                 break;
             case Sound.four:
-                audioSrc.PlayOneShot(sFour);
+                audioSrc.PlayOneShot(sFour);//not used        like a virtual drop
                 
                 break;
             case Sound.five:
-                audioSrc.PlayOneShot(sFive);
+                audioSrc.PlayOneShot(sFive);//game over
              
                 break;
             case Sound.six:
-                audioSrc.PlayOneShot(sSix);
+                audioSrc.PlayOneShot(sSix);//not used         like clacking key
 
                 break;            
             case Sound.seven:
-                audioSrc.PlayOneShot(sSeven);
+                audioSrc.PlayOneShot(sSeven);//explosion less one in health
 
                 break;    
             case Sound.eigth:
-                audioSrc.PlayOneShot(sEigth);
+                audioSrc.PlayOneShot(sEigth);//not used       like a teeny explosion
 
                 break;            
             case Sound.nine:
-                audioSrc.PlayOneShot(sNine,0.2f);
+                audioSrc.PlayOneShot(sNine,0.2f);//add point when a sun is hit
 
                 break;
 
