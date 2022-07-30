@@ -10,6 +10,7 @@ public class CurrencySystem : MonoBehaviour
     // Current currency value
     public int currency;
 
+
     // Set the default values
     public void Init()
     {
