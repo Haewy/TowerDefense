@@ -13,7 +13,13 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     [Header("Assign Victory panel")]
     public GameObject panel_Victory;
 
+    // For Shiny particle
+    public GameObject shinyParticle;
 
+    private void Awake()
+    {
+        shinyParticle.SetActive(false);
+    }
     // Start is called before the first frame update
     void Start()
     {
