@@ -13,12 +13,18 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     [Header("Assign Victory panel")]
     public GameObject panel_Victory;
 
-
+    public GameObject scoreTemp;
+    public Text txtTemp;
+    public Color aColor;
     // Start is called before the first frame update
     void Start()
     {
         currentScore = 0;
         onlyOnce = false;
+        scoreTemp = GameObject.Find("/UI/TextScoreTemp");
+        txtTemp = scoreTemp.GetComponent<Text>();
+        txtTemp.enabled = false;
+        aColor = txtTemp.color;
     }
 
     // Update is called once per frame
@@ -26,7 +32,7 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
     {
         txtScore.text = "Score " + currentScore.ToString();
         // Trigger the victory 
-        if (currentScore >= 1000.0f && !onlyOnce)
+        if (currentScore >= 1500.0f && !onlyOnce)
         {
             onlyOnce = true;
             Debug.Log("You reach the score for next level");
@@ -42,7 +48,22 @@ public class Score : MonoBehaviour// Attached to GameManager in order to work as
 
     public void AddPoints(int points) 
     {
+        txtTemp.enabled = true;
+        txtTemp.color = aColor;
+        txtTemp.text = "+" + points.ToString();
+        Invoke("DisableText", 1f);
         currentScore += points;
-
+    }    
+    public void LosePoints(int points) 
+    {
+        txtTemp.enabled = true;
+        txtTemp.color = Color.red;
+        txtTemp.text = "-" + points.ToString();
+        Invoke("DisableText", 1f);
+        currentScore -= points;
+    }
+    public void DisableText() 
+    {
+        txtTemp.enabled = false;
     }
 }
