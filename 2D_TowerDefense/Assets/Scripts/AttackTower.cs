@@ -29,11 +29,14 @@ public class AttackTower : Tower //Attached to Attack Tower prefab
 
     private void Shoot()
     {
-        AudioManager.i.Play(AudioManager.Sound.one);
-        //Shoot item
-        GameObject shotItem = Instantiate(prefabShootItem, transform);
-        //Set values of item
-        shotItem.GetComponent<ShotItem>().Init(damage);
+        if (GameManager.instance.timer.gameOver==false)
+        {
+            AudioManager.i.Play(AudioManager.Sound.one);
+            //Shoot item
+            GameObject shotItem = Instantiate(prefabShootItem, transform);
+            //Set values of item
+            shotItem.GetComponent<ShotItem>().Init(damage);
+        }
     }
     //public void LoseHealth() 
     //{

@@ -27,6 +27,12 @@ public class Timer : MonoBehaviour
     //For record
     public float timeForRecord;
 
+
+    public GameObject victoryParticle;
+    public GameObject victoryParticle1;
+
+    public EnemySpawner enemyS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +44,10 @@ public class Timer : MonoBehaviour
         panel_Victory.SetActive(false);
         levelText = GameObject.Find("/UI/LevelText").GetComponent<Text>();
         levelText.text = "Lv. " + level.ToString();
+        //victoryParticle = GameObject.Find("/UI/Victory/finalParticle").GetComponent<ParticleSystem>();
+        //victoryParticle1.SetActive(true);
+        //Instantiate(victoryParticle, transform.position, Quaternion.identity);
+
     }
 
     // Update is called once per frame
@@ -51,10 +61,14 @@ public class Timer : MonoBehaviour
 
         if (gameON)
         {
+            if (gameOver==false)
+            {
             Time.timeScale = 1;
             time += Time.deltaTime;
             txtTimer.text = "Time  " + time.ToString("F2");
             pauseMenu.SetActive(false);
+            }
+
         }
         else
         {
@@ -66,7 +80,15 @@ public class Timer : MonoBehaviour
         {
             //Save the time
             timeForRecord = time;
-            Time.timeScale = 0;
+            if (level==5)
+            {
+                Time.timeScale = 1;
+            }
+            else 
+            {
+                Time.timeScale = 0;
+            }
+
         }
 
         if(sunCountback<=0) /*(((int)time)%5==1)*/
@@ -75,15 +97,22 @@ public class Timer : MonoBehaviour
             sunCountback = 5+level;
             PopeUpaSun();
         }
-        if (time>=(100f+(level*10)) && onlyOnce)
+        if (time>=(10f+(level*3)) && onlyOnce)
         {
             Debug.Log("CALLING VICTORY FROM TIMER");
             gameOver = true;
             panel_Victory.SetActive(true);
+            if (level==5)
+            {
+                AudioManager.i.Play(AudioManager.Sound.nine);
+                Debug.Log("!!!!!!!!!Particle!!!!!!!!");
+                Instantiate(victoryParticle, transform.position, Quaternion.identity);
+                victoryParticle.SetActive(true);
+            }
             panel_Victory.GetComponent<GameOver>().ShowScore(GameManager.instance.score.currentScore);
             onlyOnce = false;
         }        
-        if (time>=(90f + (level * 5)) && !onlyOnce && time < (90f + (level * 6)))
+        if (time>=(10f + (level *2)) && !onlyOnce && time < (10f + (level * 3)))
         {
             Debug.Log("Deactivates enemy spawner FROM TIMER");
             GameManager.instance.GetComponent<EnemySpawner>().enabled = false ;

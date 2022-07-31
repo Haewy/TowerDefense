@@ -71,9 +71,13 @@ public class EnemySpawner : MonoBehaviour
     { dangerText.enabled = false; }
     private void SpawnEnemy()
     {
-        int randomID = UnityEngine.Random.Range(0, levelSpawner);
-        int randomSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Count);
-        Debug.Log("spawningenemy");
-        GameObject spawnedEnemy = Instantiate(prefabs[randomID], spawnPoints[randomSpawnPoint]);
+        if (GameManager.instance.timer.gameOver == false)
+        {
+            int randomID = UnityEngine.Random.Range(0, levelSpawner);
+            int randomSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Count);
+            Debug.Log("spawningenemy");
+            GameObject spawnedEnemy = Instantiate(prefabs[randomID], spawnPoints[randomSpawnPoint]);
+        }
+
     }
 }

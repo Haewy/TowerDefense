@@ -184,6 +184,9 @@ MonoBehaviour:
   panel_Victory: {fileID: 131450806}
   onlyOnce: 0
   timeForRecord: 0
+  victoryParticle: {fileID: 0}
+  victoryParticle1: {fileID: 0}
+  enemyS: {fileID: 1951003854}
 --- !u!114 &50231125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16349,11 +16352,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5056026650227817886, guid: a4e331630c808bf4494555596174b0a8, type: 3}
-  - {fileID: 8792915660839140839, guid: edee65c4683885f449de1fc4d1c9c409, type: 3}
-  - {fileID: 1776753579551760613, guid: 44f7c220f48f2db4ba0dba65d943bc97, type: 3}
-  - {fileID: 882246365156730923, guid: d0d4b350c8075444eb496dd98b4bf177, type: 3}
-  - {fileID: 5056026650227817886, guid: e6efdbc4063f6de4b810ed56382094ea, type: 3}
+  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
+  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
+  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
+  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
+  - {fileID: 5056026650227817886, guid: edcdd5f57d57e434bb49186cc45eb89c, type: 3}
   spawnPoints:
   - {fileID: 1433219713}
   - {fileID: 256398851}

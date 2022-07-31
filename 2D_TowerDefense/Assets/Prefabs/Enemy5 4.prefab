@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 829557201908843521}
   - component: {fileID: 7400034493679739552}
   m_Layer: 0
-  m_Name: Enemy5
+  m_Name: Enemy5 4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   intervalColor: 0.1
   anim: {fileID: 829557201908843521}
   attackIterval: 1
-  dieParticle: {fileID: 0}
   dieSprite: {fileID: 6474375556356495675}
 --- !u!61 &-2806780174904083134
 BoxCollider2D:

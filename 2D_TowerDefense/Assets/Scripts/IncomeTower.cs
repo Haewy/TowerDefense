@@ -36,9 +36,11 @@ public class IncomeTower : Tower
 
     public void IncreaseIncome()
     {
-
-        GameManager.instance.currency.Gain(incomeValue);
-        StartCoroutine(ShowCoin());
+        if (!GameManager.instance.timer.gameOver)
+        {
+            GameManager.instance.currency.Gain(incomeValue);
+            StartCoroutine(ShowCoin());
+        }
     }
 
     IEnumerator ShowCoin()

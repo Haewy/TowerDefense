@@ -15,14 +15,11 @@ public class Enemy : MonoBehaviour
     private Coroutine attackOrder;
     private Tower detectedTower;
 
-    public ParticleSystem dieParticle;
     public GameObject dieSprite;
 
     private void Awake()
     {
-        //dieParticle.Stop();
         dieSprite.SetActive(false);
-        this.enabled = true;
         
     }
 
@@ -62,7 +59,7 @@ public class Enemy : MonoBehaviour
         
                 // Make a noise for die                         // JUST TESTING 
          AudioManager.i.Play(AudioManager.Sound.two);
-        //dieParticle.Play();
+
         dieSprite.SetActive(true);
 
         // destroy then
@@ -114,7 +111,10 @@ public class Enemy : MonoBehaviour
     {
         if (!detectedTower)
         {
-            Move();
+            if (GameManager.instance.timer.gameOver == false)
+            {
+                Move();
+            }
         }
         
 
