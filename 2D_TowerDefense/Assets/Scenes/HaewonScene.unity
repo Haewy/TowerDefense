@@ -16352,9 +16352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
-  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
-  - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
+  - {fileID: 5056026650227817886, guid: a4e331630c808bf4494555596174b0a8, type: 3}
+  - {fileID: 8792915660839140839, guid: edee65c4683885f449de1fc4d1c9c409, type: 3}
+  - {fileID: 5056026650227817886, guid: 257806ca35950674f84e8e7108d4dbfc, type: 3}
   - {fileID: 5056026650227817886, guid: 5d41e49adade84d4eacf05fc23a938c4, type: 3}
   - {fileID: 5056026650227817886, guid: edcdd5f57d57e434bb49186cc45eb89c, type: 3}
   spawnPoints:

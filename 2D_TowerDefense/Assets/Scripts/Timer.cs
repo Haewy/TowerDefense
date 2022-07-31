@@ -97,7 +97,7 @@ public class Timer : MonoBehaviour
             sunCountback = 5+level;
             PopeUpaSun();
         }
-        if (time>=(10f+(level*3)) && onlyOnce)
+        if (time>=(100f+(level*3)) && onlyOnce)
         {
             Debug.Log("CALLING VICTORY FROM TIMER");
             gameOver = true;
@@ -112,7 +112,7 @@ public class Timer : MonoBehaviour
             panel_Victory.GetComponent<GameOver>().ShowScore(GameManager.instance.score.currentScore);
             onlyOnce = false;
         }        
-        if (time>=(10f + (level *2)) && !onlyOnce && time < (10f + (level * 3)))
+        if (time>=(100f + (level *2)) && !onlyOnce && time < (100f + (level * 3)))
         {
             Debug.Log("Deactivates enemy spawner FROM TIMER");
             GameManager.instance.GetComponent<EnemySpawner>().enabled = false ;

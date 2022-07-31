@@ -197,7 +197,7 @@ public class Gamer : MonoBehaviour
             this.currentLevel = PlayerPrefs.GetInt("gamer3");
             button3Empty.SetActive(false);
             button3Level.SetActive(true);
-            button3Level.GetComponentInChildren<TextMesh>().text = "Lv " + currentLevel.ToString();
+            button3Level.GetComponentInChildren<Text>().text = "Gamer3 Lv " + currentLevel.ToString();
         }
     }
     //assign level to button id is given by the button input
