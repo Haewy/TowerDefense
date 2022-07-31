@@ -4412,7 +4412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tower Defense '
+  m_text: Garden Guardians
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cbe419f44e6fdbd498d003498a64e852, type: 2}
   m_sharedMaterial: {fileID: 8582273521224484119, guid: cbe419f44e6fdbd498d003498a64e852, type: 2}
